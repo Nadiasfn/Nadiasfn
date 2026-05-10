@@ -4,7 +4,7 @@
 
 ### Content Manager · SEO Generalist · Multilingual Team Lead
 
-[![Portfolio](https://img.shields.io/badge/Portfolio-Visit%20Site-blueviolet?style=for-the-badge&logo=canva&logoColor=white)](https://appxify.my.canva.site/nadiasafarkhani-portfolio)
+[![Portfolio](https://img.shields.io/badge/Portfolio-Visit%20Site-blueviolet?style=for-the-badge&logo=canva&logoColor=white)](https://nadiasfn.github.io/nadiasfn)
 [![Email](https://img.shields.io/badge/Email-nadia.sfn94%40gmail.com-red?style=for-the-badge&logo=gmail&logoColor=white)](mailto:nadia.sfn94@gmail.com)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-nadia--safarkhani-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/nadia-safarkhani)
 
@@ -17,69 +17,6 @@
 My professional journey began with writing long-form content and SEO blogs for websites in the fields of technology and tools. I then grew interested in copywriting and creating short-form content for advertising campaigns — and it didn't stop there.
 
 Over the years I've explored UX writing, scriptwriting, and technical writing. After collaborating within diverse international teams, I grew into **content management**, leading multilingual teams of content writers across multiple markets.
-
----
-
-## 💼 Work Experience
-
-<details>
-<summary><strong>Content Manager — Cloudzy</strong> <em>(September 2025 – Present)</em></summary>
-
-- Collaborated with the SEO team to develop blog content strategy
-- Reviewed writers' work to ensure quality, consistency, and brand alignment
-- Managed and analyzed website and blog performance to identify content opportunities
-- Planned projects and content timelines for the team
-
-</details>
-
-<details>
-<summary><strong>Content Manager — Ronix Tools</strong> <em>(March 2022 – September 2025)</em></summary>
-
-- Collaborated with SEO team to optimize company websites on search engines
-- Monitored and provided feedback on the international content team's projects
-- Wrote blog posts & press releases generating positive media coverage
-- Assisted in recruitment by conducting interviews and evaluating writing samples
-- Developed creative and engaging copy for various marketing campaigns
-
-</details>
-
-<details>
-<summary><strong>Content Marketing Expert | SEO Generalist — Ordibeheesht DM Agency</strong> <em>(May 2021 – February 2022)</em></summary>
-
-- Wrote SEO-friendly content to increase organic traffic for client websites
-- Performed keyword research to optimize content for SEO
-- Wrote social media content aligned with each brand's vision and voice
-- Created Pay-Per-Click campaigns to drive targeted traffic
-- Tracked market trends to stay current on consumer and competitor changes
-
-</details>
-
-<details>
-<summary><strong>English as a Second Language Teacher — Language Institutes</strong> <em>(January 2019 – January 2021)</em></summary>
-
-- Created lesson plans based on course objectives
-- Taught English grammar and conversational speaking using Family & Friends and Connect course books
-- Leveraged technology and online platforms to enhance learning, especially during COVID-19
-
-</details>
-
-<details>
-<summary><strong>Content Writer & Translator — Freelance</strong> <em>(August 2017 – August 2019)</em></summary>
-
-- Wrote short- and long-form content on science, technology, and psychology for various clients
-- Translated materials between English and Persian
-- Delivered content in multiple formats: PowerPoint, Word, PDF, and video subtitles
-
-</details>
-
-<details>
-<summary><strong>Content Writer & Journalist — Faceit.ir</strong> <em>(January 2016 – June 2017)</em></summary>
-
-- Wrote and translated technology news and articles for [faceit.ir](https://www.faceIt.ir)
-- Enhanced website traffic through engaging blog posts and social media content
-- Provided live coverage of important international technology events
-
-</details>
 
 ---
 
@@ -128,57 +65,10 @@ National University, Iran · 2012 – 2016
 
 | Certificate | Institution | Year |
 |-------------|-------------|------|
-| ICDL 2 | Pars Rayan | April 2012 |
-| ICDL 1 | Pars Rayan | September 2012 |
 | Tour Guiding Course | Cultural Heritage, Handicrafts and Tourism Organization | August 2019 |
-| Comprehensive SEO and WordPress Tutorial | alikazemi.me | March 2021 |
 
 ---
 
 ## ⛰️ Personal Interests
 
 `Rock Climbing` · `Hiking` · `Fiction & Non-fiction Books` · `Music & Podcasts`
-
----
-
-## 🖥️ This Repository
-
-This repo contains my personal website built with **[Astro](https://astro.build/)**, deployed to GitHub Pages.
-
-**Features:**
-- Welcome / landing page
-- Portfolio section (managed via content files)
-- Simple blog
-
-### Local Development
-
-```bash
-npm install
-npm run dev
-```
-
-### Build
-
-```bash
-npm run build
-```
-
-### Content Management
-
-| Content Type | Location |
-|---|---|
-| Blog posts | `src/content/blog/*.md` |
-| Portfolio entries | `src/content/projects/*.md` |
-
-### Deployment
-
-Automatic deployment via GitHub Actions on every push to `main`.
-Enable **GitHub Pages → GitHub Actions** as source in repository settings.
-
----
-
-<div align="center">
-
-*Built with ☕ and Astro · Deployed on GitHub Pages*
-
-</div>
