@@ -11,103 +11,316 @@ const { title, description = "Nadia's personal portfolio and blog" } = Astro.pro
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
     <link rel="icon" type="image/svg+xml" href={`${import.meta.env.BASE_URL}favicon.svg`} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,400;0,6..12,600;0,6..12,700;0,6..12,800;0,6..12,900;1,6..12,400&display=swap"
+      rel="stylesheet"
+    />
     <title>{title}</title>
   </head>
   <body>
-    <header class="container site-header">
-      <a href={`${import.meta.env.BASE_URL}`} class="brand">Nadia</a>
-      <nav>
-        <a href={`${import.meta.env.BASE_URL}`}>Home</a>
-        <a href={`${import.meta.env.BASE_URL}blog`}>Blog</a>
-      </nav>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a href={`${import.meta.env.BASE_URL}`} class="brand">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <circle cx="12" cy="12" r="12" fill="#FFE01B" />
+            <circle cx="12" cy="12" r="5" fill="#241C15" />
+          </svg>
+          Nadia
+        </a>
+        <nav class="main-nav">
+          <a href={`${import.meta.env.BASE_URL}`} class="nav-link">Home</a>
+          <a href={`${import.meta.env.BASE_URL}blog`} class="nav-link">Blog</a>
+        </nav>
+      </div>
     </header>
-    <main class="container">
+
+    <main>
       <slot />
     </main>
-    <footer class="container site-footer">
-      <p>© {new Date().getFullYear()} Nadia</p>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <div class="footer-brand">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <circle cx="12" cy="12" r="12" fill="#FFE01B" />
+            <circle cx="12" cy="12" r="5" fill="#241C15" />
+          </svg>
+          Nadia
+        </div>
+        <p class="footer-copy">© {new Date().getFullYear()} Nadia · Built with Astro</p>
+      </div>
     </footer>
   </body>
 </html>
 
 <style is:global>
   :root {
-    color-scheme: light;
-    --bg: #f8fafc;
+    --banana: #ffe01b;
+    --banana-hover: #e6ca00;
+    --coconut: #241c15;
+    --coconut-soft: #3d3229;
+    --cucumber: #007c89;
+    --cucumber-light: #e0f2f4;
+    --caramel: #c16b28;
+    --oat: #faf9f7;
+    --wheat: #f5f4f0;
     --surface: #ffffff;
-    --text: #0f172a;
-    --muted: #475569;
-    --accent: #2563eb;
-    --border: #cbd5e1;
+    --text: #241c15;
+    --muted: #6b5e52;
+    --border: #e8e3dc;
+    --shadow-sm: 0 1px 3px rgba(36, 28, 21, 0.06), 0 1px 2px rgba(36, 28, 21, 0.04);
+    --shadow-md: 0 4px 14px rgba(36, 28, 21, 0.08), 0 2px 4px rgba(36, 28, 21, 0.06);
+    --shadow-lg: 0 8px 28px rgba(36, 28, 21, 0.1), 0 4px 10px rgba(36, 28, 21, 0.07);
+    --radius: 0.75rem;
+    --radius-lg: 1.25rem;
+    --radius-full: 9999px;
+    --ease: 0.18s ease;
   }
-  * {
+
+  *, *::before, *::after {
     box-sizing: border-box;
   }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
     margin: 0;
-    font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
-    line-height: 1.6;
-    background: var(--bg);
+    font-family: "Nunito Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+    font-size: 1rem;
+    line-height: 1.65;
+    background: var(--oat);
     color: var(--text);
+    -webkit-font-smoothing: antialiased;
   }
+
   a {
-    color: var(--accent);
+    color: var(--cucumber);
     text-decoration: none;
+    transition: color var(--ease);
   }
+
   a:hover {
-    text-decoration: underline;
+    color: var(--caramel);
   }
+
+  h1, h2, h3, h4 {
+    font-weight: 800;
+    line-height: 1.2;
+    letter-spacing: -0.025em;
+    color: var(--coconut);
+    margin-top: 0;
+  }
+
+  p {
+    margin-top: 0;
+  }
+
+  mark {
+    background: transparent;
+    color: inherit;
+  }
+
+  img {
+    max-width: 100%;
+    display: block;
+  }
+
+  /* ── Layout ─────────────────────────── */
   .container {
-    width: min(980px, 92%);
+    width: min(1040px, 92%);
     margin-inline: auto;
   }
+
+  .section {
+    padding-block: 3rem;
+  }
+
+  .section + .section {
+    border-top: 1px solid var(--border);
+  }
+
+  /* ── Header ─────────────────────────── */
   .site-header {
+    background: var(--surface);
+    border-bottom: 2px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .header-inner {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding-block: 1.25rem;
+    padding-block: 1rem;
   }
-  .site-header nav {
-    display: flex;
-    gap: 1rem;
-  }
+
   .brand {
-    font-weight: 800;
-    color: var(--text);
-    font-size: 1.1rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 900;
+    font-size: 1.2rem;
+    color: var(--coconut) !important;
+    letter-spacing: -0.03em;
+    transition: opacity var(--ease);
   }
-  .site-footer {
-    color: var(--muted);
-    padding-block: 2rem;
-    border-top: 1px solid var(--border);
-    margin-top: 4rem;
+
+  .brand:hover {
+    opacity: 0.8;
+    color: var(--coconut) !important;
   }
+
+  .main-nav {
+    display: flex;
+    align-items: center;
+    gap: 0.2rem;
+  }
+
+  .nav-link {
+    padding: 0.45rem 0.9rem;
+    border-radius: var(--radius);
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: var(--coconut) !important;
+    transition: background var(--ease);
+  }
+
+  .nav-link:hover {
+    background: var(--banana);
+    text-decoration: none;
+    color: var(--coconut) !important;
+  }
+
+  /* ── Cards ──────────────────────────── */
   .card {
     background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 0.75rem;
-    padding: 1rem 1.1rem;
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
+    transition: box-shadow var(--ease), border-color var(--ease), transform var(--ease);
   }
+
+  .card:hover {
+    box-shadow: var(--shadow-lg);
+    border-color: var(--banana);
+    transform: translateY(-2px);
+  }
+
+  /* ── Grid ───────────────────────────── */
   .grid {
     display: grid;
-    gap: 1rem;
+    gap: 1.25rem;
   }
+
+  @media (min-width: 640px) {
+    .grid {
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    }
+  }
+
+  /* ── Tags ───────────────────────────── */
   .tags {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.45rem;
+    gap: 0.4rem;
     padding: 0;
-    margin: 0.9rem 0 0;
+    margin: 1rem 0 0;
     list-style: none;
   }
+
   .tag {
-    border: 1px solid var(--border);
-    border-radius: 999px;
-    font-size: 0.8rem;
-    color: var(--muted);
-    padding: 0.15rem 0.55rem;
+    background: var(--wheat);
+    color: var(--coconut);
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius-full);
+    font-size: 0.75rem;
+    font-weight: 800;
+    padding: 0.2rem 0.65rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  /* ── Buttons ────────────────────────── */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.6rem 1.35rem;
+    background: var(--banana);
+    color: var(--coconut) !important;
+    font-weight: 800;
+    font-size: 0.9rem;
+    border-radius: var(--radius-full);
+    border: 2px solid var(--coconut);
+    cursor: pointer;
+    text-decoration: none !important;
+    box-shadow: 3px 3px 0 var(--coconut);
+    transition: background var(--ease), transform var(--ease), box-shadow var(--ease);
+  }
+
+  .btn:hover {
+    background: var(--banana-hover);
+    transform: translate(-1px, -1px);
+    box-shadow: 4px 4px 0 var(--coconut);
+    color: var(--coconut) !important;
+  }
+
+  .btn:active {
+    transform: translate(1px, 1px);
+    box-shadow: 1px 1px 0 var(--coconut);
+  }
+
+  .btn-ghost {
+    background: transparent;
+    border-color: var(--border);
+    color: var(--muted) !important;
+    box-shadow: none;
+  }
+
+  .btn-ghost:hover {
+    background: var(--wheat);
+    border-color: var(--coconut);
+    color: var(--coconut) !important;
+    transform: none;
+    box-shadow: none;
+  }
+
+  /* ── Footer ─────────────────────────── */
+  .site-footer {
+    background: var(--coconut);
+    color: rgba(255, 255, 255, 0.65);
+    padding-block: 2.5rem;
+    margin-top: 5rem;
+  }
+
+  .footer-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  .footer-brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 900;
+    font-size: 1.05rem;
+    color: #ffffff;
+    letter-spacing: -0.025em;
+  }
+
+  .footer-copy {
+    font-size: 0.85rem;
+    margin: 0;
   }
 </style>

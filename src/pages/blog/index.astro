@@ -7,20 +7,168 @@ const posts = (await getCollection("blog"))
   .sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime());
 ---
 
-<Layout title="Blog | Nadia" description="Simple blog by Nadia">
-  <h1>Blog</h1>
-  <p>Short notes, updates, and learnings.</p>
-  <div class="grid">
-    {
-      posts.map((post) => (
-        <article class="card">
-          <h2>
-            <a href={`${import.meta.env.BASE_URL}blog/${post.id}`}>{post.data.title}</a>
-          </h2>
-          <p>{post.data.description}</p>
-          <small>{post.data.pubDate.toLocaleDateString("en-US", { dateStyle: "medium" })}</small>
-        </article>
-      ))
-    }
-  </div>
+<Layout title="Blog | Nadia" description="Short notes, updates, and learnings by Nadia.">
+
+  <!-- ── Page header ─────────────────── -->
+  <section class="page-hero">
+    <div class="container page-hero-inner">
+      <a href={`${import.meta.env.BASE_URL}`} class="breadcrumb">← Home</a>
+      <h1>Blog</h1>
+      <p class="page-desc">Short notes, updates, and learnings.</p>
+    </div>
+    <div class="page-stripe" aria-hidden="true"></div>
+  </section>
+
+  <!-- ── Post list ───────────────────── -->
+  <section class="section container">
+    <div class="post-list">
+      {
+        posts.map((post, i) => (
+          <a
+            href={`${import.meta.env.BASE_URL}blog/${post.id}`}
+            class="post-row"
+          >
+            <span class="post-index">{String(i + 1).padStart(2, "0")}</span>
+            <div class="post-body">
+              <p class="post-title">{post.data.title}</p>
+              <p class="post-desc">{post.data.description}</p>
+              <time class="post-date">
+                {post.data.pubDate.toLocaleDateString("en-US", { dateStyle: "long" })}
+              </time>
+            </div>
+            <span class="post-arrow">→</span>
+          </a>
+        ))
+      }
+    </div>
+  </section>
+
 </Layout>
+
+<style>
+  /* ── Page hero ─────────────────────── */
+  .page-hero {
+    background: var(--surface);
+    border-bottom: 2px solid var(--border);
+  }
+
+  .page-hero-inner {
+    padding-top: 3rem;
+    padding-bottom: 2.5rem;
+  }
+
+  .breadcrumb {
+    display: inline-block;
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: var(--muted) !important;
+    margin-bottom: 1rem;
+    transition: color var(--ease);
+  }
+
+  .breadcrumb:hover {
+    color: var(--cucumber) !important;
+  }
+
+  .page-hero h1 {
+    font-size: clamp(2.25rem, 5vw, 3.25rem);
+    margin-bottom: 0.5rem;
+  }
+
+  .page-desc {
+    color: var(--muted);
+    font-size: 1.05rem;
+    margin: 0;
+  }
+
+  .page-stripe {
+    height: 6px;
+    background: repeating-linear-gradient(
+      90deg,
+      var(--banana) 0,
+      var(--banana) 36px,
+      var(--coconut) 36px,
+      var(--coconut) 40px
+    );
+  }
+
+  /* ── Post list ─────────────────────── */
+  .post-list {
+    background: var(--surface);
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+  }
+
+  .post-row {
+    display: grid;
+    grid-template-columns: 52px 1fr auto;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1.5rem;
+    border-bottom: 1px solid var(--border);
+    text-decoration: none !important;
+    color: var(--coconut) !important;
+    transition: background var(--ease);
+  }
+
+  .post-row:last-child {
+    border-bottom: none;
+  }
+
+  .post-row:hover {
+    background: var(--wheat);
+  }
+
+  .post-index {
+    font-size: 1.1rem;
+    font-weight: 900;
+    color: var(--border);
+    font-variant-numeric: tabular-nums;
+    line-height: 1;
+  }
+
+  .post-title {
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: var(--coconut);
+    margin: 0 0 0.3rem;
+    letter-spacing: -0.015em;
+  }
+
+  .post-desc {
+    font-size: 0.9rem;
+    color: var(--muted);
+    margin: 0 0 0.4rem;
+    line-height: 1.5;
+  }
+
+  .post-date {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  .post-arrow {
+    font-size: 1.25rem;
+    color: var(--muted);
+    transition: transform var(--ease), color var(--ease);
+    flex-shrink: 0;
+  }
+
+  .post-row:hover .post-arrow {
+    transform: translateX(4px);
+    color: var(--cucumber);
+  }
+
+  @media (max-width: 500px) {
+    .post-index {
+      display: none;
+    }
+    .post-row {
+      grid-template-columns: 1fr auto;
+    }
+  }
+</style>
