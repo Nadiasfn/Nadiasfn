@@ -1,0 +1,113 @@
+---
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = "Nadia's personal portfolio and blog" } = Astro.props as Props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/svg+xml" href={`${import.meta.env.BASE_URL}favicon.svg`} />
+    <title>{title}</title>
+  </head>
+  <body>
+    <header class="container site-header">
+      <a href={`${import.meta.env.BASE_URL}`} class="brand">Nadia</a>
+      <nav>
+        <a href={`${import.meta.env.BASE_URL}`}>Home</a>
+        <a href={`${import.meta.env.BASE_URL}blog`}>Blog</a>
+      </nav>
+    </header>
+    <main class="container">
+      <slot />
+    </main>
+    <footer class="container site-footer">
+      <p>© {new Date().getFullYear()} Nadia</p>
+    </footer>
+  </body>
+</html>
+
+<style is:global>
+  :root {
+    color-scheme: light;
+    --bg: #f8fafc;
+    --surface: #ffffff;
+    --text: #0f172a;
+    --muted: #475569;
+    --accent: #2563eb;
+    --border: #cbd5e1;
+  }
+  * {
+    box-sizing: border-box;
+  }
+  body {
+    margin: 0;
+    font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+    line-height: 1.6;
+    background: var(--bg);
+    color: var(--text);
+  }
+  a {
+    color: var(--accent);
+    text-decoration: none;
+  }
+  a:hover {
+    text-decoration: underline;
+  }
+  .container {
+    width: min(980px, 92%);
+    margin-inline: auto;
+  }
+  .site-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-block: 1.25rem;
+  }
+  .site-header nav {
+    display: flex;
+    gap: 1rem;
+  }
+  .brand {
+    font-weight: 800;
+    color: var(--text);
+    font-size: 1.1rem;
+  }
+  .site-footer {
+    color: var(--muted);
+    padding-block: 2rem;
+    border-top: 1px solid var(--border);
+    margin-top: 4rem;
+  }
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 0.75rem;
+    padding: 1rem 1.1rem;
+  }
+  .grid {
+    display: grid;
+    gap: 1rem;
+  }
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+    padding: 0;
+    margin: 0.9rem 0 0;
+    list-style: none;
+  }
+  .tag {
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    font-size: 0.8rem;
+    color: var(--muted);
+    padding: 0.15rem 0.55rem;
+  }
+</style>

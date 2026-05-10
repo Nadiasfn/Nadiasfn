@@ -1,0 +1,26 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+
+const posts = (await getCollection("blog"))
+  .filter((post) => !post.data.draft)
+  .sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime());
+---
+
+<Layout title="Blog | Nadia" description="Simple blog by Nadia">
+  <h1>Blog</h1>
+  <p>Short notes, updates, and learnings.</p>
+  <div class="grid">
+    {
+      posts.map((post) => (
+        <article class="card">
+          <h2>
+            <a href={`${import.meta.env.BASE_URL}blog/${post.id}`}>{post.data.title}</a>
+          </h2>
+          <p>{post.data.description}</p>
+          <small>{post.data.pubDate.toLocaleDateString("en-US", { dateStyle: "medium" })}</small>
+        </article>
+      ))
+    }
+  </div>
+</Layout>
