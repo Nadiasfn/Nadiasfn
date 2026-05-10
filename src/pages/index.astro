@@ -8,6 +8,7 @@ const posts = (await getCollection("blog"))
   .filter((post) => !post.data.draft)
   .sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime())
   .slice(0, 3);
+const base = import.meta.env.BASE_URL.replace(/\/$/, "");
 ---
 
 <Layout title="Nadia | Portfolio & Blog" description="Welcome to Nadia's personal portfolio and blog.">
@@ -27,7 +28,7 @@ const posts = (await getCollection("blog"))
         website where I keep my portfolio and write short blog posts.
       </p>
       <div class="hero-ctas">
-        <a href={`${import.meta.env.BASE_URL}blog`} class="btn">Read my blog</a>
+        <a href={`${base}/blog`} class="btn">Read my blog</a>
         <a href="#portfolio" class="btn btn-ghost">View projects</a>
       </div>
     </div>
@@ -96,7 +97,7 @@ const posts = (await getCollection("blog"))
       {
         posts.map((post) => (
           <a
-            href={`${import.meta.env.BASE_URL}blog/${post.id}`}
+            href={`${base}/blog/${post.id}`}
             class="post-row"
           >
             <time class="post-date">
@@ -112,7 +113,7 @@ const posts = (await getCollection("blog"))
       }
     </div>
     <div class="view-all">
-      <a href={`${import.meta.env.BASE_URL}blog`} class="btn">All posts →</a>
+      <a href={`${base}/blog`} class="btn">All posts →</a>
     </div>
   </section>
 
