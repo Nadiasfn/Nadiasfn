@@ -50,7 +50,7 @@ const posts = (await getCollection("blog"))
         posts.map((post) => (
           <article class="card">
             <h3>
-              <a href={`${import.meta.env.BASE_URL}blog/${post.slug}`}>{post.data.title}</a>
+              <a href={`${import.meta.env.BASE_URL}blog/${post.id}`}>{post.data.title}</a>
             </h3>
             <p>{post.data.description}</p>
             <small>{post.data.pubDate.toLocaleDateString("en-US", { dateStyle: "medium" })}</small>
