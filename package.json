@@ -1,0 +1,34 @@
+{
+  "name": "nadiasfn",
+  "version": "0.0.1",
+  "description": "Nadia's personal portfolio and simple blog built with Astro.",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "check": "astro check"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tayyebi/Nadiasfn.git"
+  },
+  "keywords": [
+    "astro",
+    "portfolio",
+    "blog"
+  ],
+  "author": "Nadia",
+  "license": "MIT",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/tayyebi/Nadiasfn/issues"
+  },
+  "homepage": "https://github.com/tayyebi/Nadiasfn#readme",
+  "dependencies": {
+    "astro": "^6.3.1",
+    "typescript": "^6.0.3"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.9"
+  }
+}
