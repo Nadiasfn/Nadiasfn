@@ -4,7 +4,7 @@
 
 ### Content Manager · SEO Generalist · Multilingual Team Lead
 
-[![Portfolio](https://img.shields.io/badge/Portfolio-Visit%20Site-blueviolet?style=for-the-badge&logo=canva&logoColor=white)](https://nadiasfn.github.io/nadiasfn)
+[![Portfolio](https://img.shields.io/badge/Portfolio-Visit%20Site-blueviolet?style=for-the-badge&logo=canva&logoColor=white)](https://nadiasfn.github.io/Nadiasfn)
 [![Email](https://img.shields.io/badge/Email-nadia.sfn94%40gmail.com-red?style=for-the-badge&logo=gmail&logoColor=white)](mailto:nadia.sfn94@gmail.com)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-nadia--safarkhani-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/nadia-safarkhani)
 
