@@ -61,11 +61,7 @@ Over the years I've explored UX writing, scriptwriting, and technical writing. A
 ## 🎓 Education & Certificates
 
 **Bachelor of English Literature**
-National University, Iran · 2012 – 2016
-
-| Certificate | Institution | Year |
-|-------------|-------------|------|
-| Tour Guiding Course | Cultural Heritage, Handicrafts and Tourism Organization | August 2019 |
+Iran · 2012 – 2016
 
 ---
 
