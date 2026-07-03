@@ -14,9 +14,7 @@
 
 ## 👩‍💼 About Me
 
-My professional journey began with writing long-form content and SEO blogs for websites in the fields of technology and tools. I then grew interested in copywriting and creating short-form content for advertising campaigns — and it didn't stop there.
-
-Over the years I've explored UX writing, scriptwriting, and technical writing. After collaborating within diverse international teams, I grew into **content management**, leading multilingual teams of content writers across multiple markets.
+Content writer and strategist with a background in English Literature and experience in technology writing, SEO, copywriting, scriptwriting, and content marketing. After beginning my career as a remote tech writer, I progressed as a content team head, managing editorial teams and developing content strategies. More recently, I have specialized in AI-powered content operations, building automated workflows, working with AI agents, and integrating generative AI into content production. I combine editorial expertise, strategic thinking, and modern AI tools to help teams create high-quality content efficiently, whether human-written, AI-generated, or a blend of both.
 
 ---
 
