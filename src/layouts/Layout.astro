@@ -28,8 +28,8 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
       <div class="container header-inner">
         <a href={`${base}/`} class="brand">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-            <circle cx="12" cy="12" r="12" fill="#FFE01B" />
-            <circle cx="12" cy="12" r="5" fill="#241C15" />
+            <circle cx="12" cy="12" r="12" fill="var(--banana)" />
+            <circle cx="12" cy="12" r="5" fill="var(--coconut)" />
           </svg>
           Nadia
         </a>
@@ -50,8 +50,8 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
       <div class="container footer-inner">
         <div class="footer-brand">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-            <circle cx="12" cy="12" r="12" fill="#FFE01B" />
-            <circle cx="12" cy="12" r="5" fill="#241C15" />
+            <circle cx="12" cy="12" r="12" fill="var(--banana)" />
+            <circle cx="12" cy="12" r="5" fill="var(--coconut)" />
           </svg>
           Nadia
         </div>
@@ -63,26 +63,26 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
 
 <style is:global>
   :root {
-    --banana: #ffe01b;
-    --banana-hover: #e6ca00;
-    --coconut: #241c15;
-    --coconut-soft: #3d3229;
-    --cucumber: #007c89;
-    --cucumber-light: #e0f2f4;
-    --caramel: #c16b28;
-    --oat: #faf9f7;
-    --wheat: #f5f4f0;
+    --banana: #f6e6a8;
+    --banana-hover: #f5e050;
+    --coconut: #4a4458;
+    --coconut-soft: #6c6480;
+    --cucumber: #6ec1e4;
+    --cucumber-light: #e1f1fa;
+    --caramel: #a79bc4;
+    --oat: #f8f6fb;
+    --wheat: #efeaf5;
     --surface: #ffffff;
-    --text: #241c15;
-    --muted: #6b5e52;
-    --border: #e8e3dc;
-    --shadow-sm: 0 1px 3px rgba(36, 28, 21, 0.06), 0 1px 2px rgba(36, 28, 21, 0.04);
-    --shadow-md: 0 4px 14px rgba(36, 28, 21, 0.08), 0 2px 4px rgba(36, 28, 21, 0.06);
-    --shadow-lg: 0 8px 28px rgba(36, 28, 21, 0.1), 0 4px 10px rgba(36, 28, 21, 0.07);
-    --radius: 0.75rem;
-    --radius-lg: 1.25rem;
+    --text: #4a4458;
+    --muted: #8f87a0;
+    --border: #e3deec;
+    --shadow-sm: 0 1px 3px rgba(74, 68, 88, 0.05), 0 1px 2px rgba(74, 68, 88, 0.04);
+    --shadow-md: 0 4px 14px rgba(74, 68, 88, 0.07), 0 2px 4px rgba(74, 68, 88, 0.05);
+    --shadow-lg: 0 8px 28px rgba(74, 68, 88, 0.09), 0 4px 10px rgba(74, 68, 88, 0.06);
+    --radius: 1rem;
+    --radius-lg: 1.5rem;
     --radius-full: 9999px;
-    --ease: 0.18s ease;
+    --ease: 0.2s ease;
   }
 
   *, *::before, *::after {
@@ -152,7 +152,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
   /* ── Header ─────────────────────────── */
   .site-header {
     background: var(--surface);
-    border-bottom: 2px solid var(--border);
+    border-bottom: 1px solid var(--border);
     position: sticky;
     top: 0;
     z-index: 100;
@@ -256,29 +256,29 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
     display: inline-flex;
     align-items: center;
     gap: 0.35rem;
-    padding: 0.6rem 1.35rem;
+    padding: 0.65rem 1.4rem;
     background: var(--banana);
     color: var(--coconut) !important;
-    font-weight: 800;
+    font-weight: 700;
     font-size: 0.9rem;
     border-radius: var(--radius-full);
-    border: 2px solid var(--coconut);
+    border: 1.5px solid transparent;
     cursor: pointer;
     text-decoration: none !important;
-    box-shadow: 3px 3px 0 var(--coconut);
+    box-shadow: var(--shadow-sm);
     transition: background var(--ease), transform var(--ease), box-shadow var(--ease);
   }
 
   .btn:hover {
     background: var(--banana-hover);
-    transform: translate(-1px, -1px);
-    box-shadow: 4px 4px 0 var(--coconut);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
     color: var(--coconut) !important;
   }
 
   .btn:active {
-    transform: translate(1px, 1px);
-    box-shadow: 1px 1px 0 var(--coconut);
+    transform: translateY(0);
+    box-shadow: var(--shadow-sm);
   }
 
   .btn-ghost {
@@ -290,7 +290,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
 
   .btn-ghost:hover {
     background: var(--wheat);
-    border-color: var(--coconut);
+    border-color: var(--cucumber-light);
     color: var(--coconut) !important;
     transform: none;
     box-shadow: none;
