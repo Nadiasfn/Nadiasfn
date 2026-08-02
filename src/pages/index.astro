@@ -227,11 +227,18 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
                 </div>
               )}
               {project.data.samples.length > 0 && (
-                <ul class="sample-list">
+                <ul class="sample-grid">
                   {project.data.samples.map((sample) => (
                     <li>
-                      <a href={sample.url} class="sample-link" target="_blank" rel="noopener noreferrer">
-                        ↗ {sample.title}
+                      <a href={sample.url} class="sample-card" target="_blank" rel="noopener noreferrer">
+                        {sample.image ? (
+                          <>
+                            <img src={sample.image} alt={sample.title} class="sample-cover" loading="lazy" />
+                            <span class="sample-caption">{sample.title}</span>
+                          </>
+                        ) : (
+                          <span class="sample-link">↗ {sample.title}</span>
+                        )}
                       </a>
                     </li>
                   ))}
@@ -787,13 +794,50 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
     transform: scale(1.08);
   }
 
-  .sample-list {
+  .sample-grid {
     list-style: none;
     margin: 1rem 0 0;
     padding: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.6rem;
+  }
+
+  .sample-card {
+    position: relative;
+    display: block;
+    aspect-ratio: 4 / 3;
+    border-radius: 0.6rem;
+    overflow: hidden;
+    background: var(--wheat);
+  }
+
+  .sample-cover {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--ease);
+  }
+
+  .sample-card:hover .sample-cover {
+    transform: scale(1.06);
+  }
+
+  .sample-caption {
+    position: absolute;
+    inset: auto 0 0 0;
+    padding: 1.5rem 0.6rem 0.5rem;
+    background: linear-gradient(to top, rgba(20, 16, 24, 0.88), rgba(20, 16, 24, 0));
+    color: #fff !important;
+    font-size: 0.75rem;
+    font-weight: 700;
+    line-height: 1.35;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
   }
 
   .sample-link {

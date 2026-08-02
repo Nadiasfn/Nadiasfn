@@ -24,7 +24,8 @@ const projects = defineCollection({
       .array(
         z.object({
           title: z.string(),
-          url: z.string().url()
+          url: z.string().url(),
+          image: z.string().url().optional()
         })
       )
       .default([]),
