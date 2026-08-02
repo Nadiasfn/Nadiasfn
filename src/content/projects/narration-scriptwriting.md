@@ -7,4 +7,8 @@ tags:
   - Narration
   - Video Content
   - Storytelling
+videos:
+  - title: "Ronix Tools - Corporate Video"
+    src: /ronix-corporate-video.mp4
+    thumbnail: /ronix-corporate-video-thumb.jpg
 ---

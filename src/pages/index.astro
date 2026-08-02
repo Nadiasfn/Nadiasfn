@@ -186,6 +186,57 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
             <div class="card-body">
               <h3 class="card-title">{project.data.title}</h3>
               <p class="card-desc">{project.data.description}</p>
+              {project.data.videos.length > 0 && (
+                <div class="video-list">
+                  {project.data.videos.map((video) => (
+                    video.src ? (
+                      <div class="video-embed">
+                        <video
+                          controls
+                          preload="none"
+                          poster={video.thumbnail ? `${base}${video.thumbnail}` : undefined}
+                        >
+                          <source src={`${base}${video.src}`} type="video/mp4" />
+                        </video>
+                      </div>
+                    ) : video.thumbnail ? (
+                      <button
+                        type="button"
+                        class="video-embed video-facade"
+                        data-embed-url={video.embedUrl}
+                        data-video-title={video.title}
+                        aria-label={`Play ${video.title}`}
+                      >
+                        <img src={video.thumbnail} alt={video.title} class="video-thumb" loading="lazy" />
+                        <span class="video-play" aria-hidden="true">
+                          <svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor"><path d="M8 5v14l11-7z" /></svg>
+                        </span>
+                      </button>
+                    ) : (
+                      <div class="video-embed">
+                        <iframe
+                          src={video.embedUrl}
+                          title={video.title}
+                          allow="autoplay"
+                          allowfullscreen
+                          loading="lazy"
+                        />
+                      </div>
+                    )
+                  ))}
+                </div>
+              )}
+              {project.data.samples.length > 0 && (
+                <ul class="sample-list">
+                  {project.data.samples.map((sample) => (
+                    <li>
+                      <a href={sample.url} class="sample-link" target="_blank" rel="noopener noreferrer">
+                        ↗ {sample.title}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              )}
             </div>
             <footer class="card-footer">
               <ul class="tags">
@@ -213,6 +264,23 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
       }
     </div>
   </section>
+
+  <script>
+    document.querySelectorAll<HTMLButtonElement>(".video-facade").forEach((facade) => {
+      facade.addEventListener("click", () => {
+        const url = facade.dataset.embedUrl;
+        const title = facade.dataset.videoTitle ?? "";
+        if (!url) return;
+        const iframe = document.createElement("iframe");
+        iframe.src = url;
+        iframe.title = title;
+        iframe.allow = "autoplay; fullscreen";
+        iframe.allowFullscreen = true;
+        iframe.className = "video-embed";
+        facade.replaceWith(iframe);
+      });
+    });
+  </script>
 
   <!-- ── Languages & Education ─────────── -->
   <section id="education" class="section container">
@@ -650,6 +718,93 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
     font-size: 0.95rem;
     line-height: 1.65;
     margin: 0;
+  }
+
+  .video-list {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .video-embed {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border-radius: var(--radius-md, 0.5rem);
+    overflow: hidden;
+    background: var(--wheat);
+  }
+
+  .video-embed iframe,
+  .video-embed video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    object-fit: cover;
+    background: #000;
+  }
+
+  .video-facade {
+    display: block;
+    padding: 0;
+    border: 0;
+    cursor: pointer;
+    font: inherit;
+  }
+
+  .video-thumb {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .video-play {
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: rgba(20, 16, 24, 0.65);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background var(--ease), transform var(--ease);
+  }
+
+  .video-play svg {
+    margin-left: 3px;
+  }
+
+  .video-facade:hover .video-play {
+    background: var(--cucumber);
+    transform: scale(1.08);
+  }
+
+  .sample-list {
+    list-style: none;
+    margin: 1rem 0 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .sample-link {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--cucumber);
+    line-height: 1.5;
+  }
+
+  .sample-link:hover {
+    color: var(--caramel);
   }
 
   .card-footer {

@@ -19,7 +19,25 @@ const projects = defineCollection({
     order: z.number().default(0),
     tags: z.array(z.string()).default([]),
     repoUrl: z.string().url().optional(),
-    demoUrl: z.string().url().optional()
+    demoUrl: z.string().url().optional(),
+    samples: z
+      .array(
+        z.object({
+          title: z.string(),
+          url: z.string().url()
+        })
+      )
+      .default([]),
+    videos: z
+      .array(
+        z.object({
+          title: z.string(),
+          src: z.string().optional(),
+          embedUrl: z.string().url().optional(),
+          thumbnail: z.string().optional()
+        })
+      )
+      .default([])
   })
 });
 
