@@ -155,7 +155,7 @@ const tools = [
                         </span>
                       </button>
                     ) : (
-                      <div class="video-embed">
+                      <div class={`video-embed ${video.embedUrl?.includes("instagram.com") ? "video-embed--portrait" : ""}`}>
                         <iframe
                           src={video.embedUrl}
                           title={video.title}
@@ -813,6 +813,12 @@ const tools = [
     border-radius: var(--radius-md, 0.5rem);
     overflow: hidden;
     background: var(--wheat);
+  }
+
+  .video-embed--portrait {
+    aspect-ratio: 9 / 16;
+    max-width: 340px;
+    margin-inline: auto;
   }
 
   .video-embed iframe,
