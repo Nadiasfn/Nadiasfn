@@ -23,4 +23,7 @@ samples:
   - title: "5 Best Chainsaws for Home Use"
     url: https://ronixtools.com/en/blog/best-chainsaws-for-home-use/
     image: https://ronixtools.com/en/blog/wp-content/uploads/2025/01/Best-Chainsaws-for-Home-Use-1024x575.webp
+  - title: "40 Top Air Compressor Manufacturers & Brands to Know"
+    url: https://ronixtools.com/en/blog/air-compressor-manufacturers/
+    image: https://ronixtools.com/en/blog/wp-content/uploads/2025/05/Air-Compressor-Manufacturers-1024x575.webp
 ---
