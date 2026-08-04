@@ -9,6 +9,22 @@ const posts = (await getCollection("blog"))
   .sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime())
   .slice(0, 3);
 const base = import.meta.env.BASE_URL.replace(/\/$/, "");
+
+const tools = [
+  { name: "Claude Code", icon: "claude" },
+  { name: "ChatGPT", icon: "chatgpt" },
+  { name: "Gemini", icon: "gemini" },
+  { name: "HeyGen" },
+  { name: "Higgsfield" },
+  { name: "OpenClaw" },
+  { name: "GitHub", icon: "github" },
+  { name: "Google Analytics", icon: "google-analytics" },
+  { name: "Google Search Console", icon: "google-search-console" },
+  { name: "SemRush", icon: "semrush" },
+  { name: "SocialChamp" },
+  { name: "Canva", icon: "canva" },
+  { name: "Adobe Photoshop", icon: "adobe-photoshop" }
+];
 ---
 
 <Layout title="Nadia | Portfolio & Blog" description="Welcome to Nadia's personal portfolio and blog.">
@@ -83,20 +99,17 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
       </p>
       <div class="about-tools">
         <h3 class="about-tools-title">Tools I've worked with</h3>
-        <ul class="tags">
-          <li class="tag">Claude Code</li>
-          <li class="tag">ChatGPT</li>
-          <li class="tag">Gemini</li>
-          <li class="tag">HeyGen</li>
-          <li class="tag">Higgsfield</li>
-          <li class="tag">OpenClaw</li>
-          <li class="tag">GitHub</li>
-          <li class="tag">Google Analytics</li>
-          <li class="tag">Google Search Console</li>
-          <li class="tag">SemRush</li>
-          <li class="tag">SocialChamp</li>
-          <li class="tag">Canva</li>
-          <li class="tag">Adobe Photoshop</li>
+        <ul class="tool-grid">
+          {tools.map((tool) => (
+            <li class="tool-chip">
+              {tool.icon ? (
+                <span class="tool-icon" style={`--tool-icon: url(${base}/icons/${tool.icon}.svg)`} aria-hidden="true"></span>
+              ) : (
+                <span class="tool-icon tool-icon-fallback" aria-hidden="true">{tool.name.charAt(0)}</span>
+              )}
+              <span class="tool-name">{tool.name}</span>
+            </li>
+          ))}
         </ul>
       </div>
     </div>
@@ -527,6 +540,62 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
   .about-tools-title {
     font-size: 1rem;
     margin-bottom: 0.85rem;
+  }
+
+  .tool-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+
+  .tool-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--surface);
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius-full);
+    padding: 0.45rem 0.9rem 0.45rem 0.6rem;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--coconut);
+    box-shadow: var(--shadow-sm);
+    transition: border-color var(--ease), box-shadow var(--ease), transform var(--ease);
+  }
+
+  .tool-chip:hover {
+    border-color: var(--banana);
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+  }
+
+  .tool-icon {
+    width: 1.15rem;
+    height: 1.15rem;
+    flex-shrink: 0;
+    background-color: var(--coconut-soft);
+    -webkit-mask-image: var(--tool-icon);
+    mask-image: var(--tool-icon);
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    mask-position: center;
+    -webkit-mask-size: contain;
+    mask-size: contain;
+  }
+
+  .tool-icon-fallback {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--wheat);
+    color: var(--coconut);
+    border-radius: 50%;
+    font-size: 0.7rem;
+    font-weight: 900;
   }
 
   @media (max-width: 760px) {
