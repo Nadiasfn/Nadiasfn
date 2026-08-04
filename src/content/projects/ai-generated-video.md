@@ -9,4 +9,5 @@ tags:
 videos:
   - title: "Hermes Agent - Sophisticated Launch Video"
     src: /hermes-agent-launch-video.mp4
+    thumbnail: /hermes-agent-launch-video-thumb.jpg
 ---
