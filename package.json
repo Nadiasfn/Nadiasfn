@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/tayyebi/Nadiasfn.git"
+    "url": "git+https://github.com/Nadiasfn/Nadiasfn.git"
   },
   "keywords": [
     "astro",
@@ -21,9 +21,9 @@
   "license": "MIT",
   "type": "module",
   "bugs": {
-    "url": "https://github.com/tayyebi/Nadiasfn/issues"
+    "url": "https://github.com/Nadiasfn/Nadiasfn/issues"
   },
-  "homepage": "https://github.com/tayyebi/Nadiasfn#readme",
+  "homepage": "https://github.com/Nadiasfn/Nadiasfn#readme",
   "dependencies": {
     "astro": "^6.3.1",
     "typescript": "^6.0.3"
