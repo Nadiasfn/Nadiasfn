@@ -11,6 +11,8 @@ videos:
   - title: "Ronix Tools - Corporate Video"
     src: /ronix-corporate-video.mp4
     thumbnail: /ronix-corporate-video-thumb.jpg
-  - title: "Instagram Reel"
-    embedUrl: https://www.instagram.com/reel/DD814ictfwM/embed
+  - title: "Ronix Tools - Instagram Reel"
+    src: /instagram-reel.mp4
+    thumbnail: /instagram-reel-thumb.jpg
+    portrait: true
 ---

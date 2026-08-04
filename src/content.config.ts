@@ -35,7 +35,8 @@ const projects = defineCollection({
           title: z.string(),
           src: z.string().optional(),
           embedUrl: z.string().url().optional(),
-          thumbnail: z.string().optional()
+          thumbnail: z.string().optional(),
+          portrait: z.boolean().optional()
         })
       )
       .default([])

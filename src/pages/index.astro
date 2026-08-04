@@ -132,7 +132,7 @@ const tools = [
                 <div class="video-list">
                   {project.data.videos.map((video) => (
                     video.src ? (
-                      <div class="video-embed">
+                      <div class={`video-embed ${video.portrait ? "video-embed--portrait" : ""}`}>
                         <video
                           controls
                           preload="none"
@@ -144,7 +144,7 @@ const tools = [
                     ) : video.thumbnail ? (
                       <button
                         type="button"
-                        class="video-embed video-facade"
+                        class={`video-embed video-facade ${video.portrait ? "video-embed--portrait" : ""}`}
                         data-embed-url={video.embedUrl}
                         data-video-title={video.title}
                         aria-label={`Play ${video.title}`}
@@ -155,7 +155,7 @@ const tools = [
                         </span>
                       </button>
                     ) : (
-                      <div class={`video-embed ${video.embedUrl?.includes("instagram.com") ? "video-embed--portrait" : ""}`}>
+                      <div class={`video-embed ${video.portrait ? "video-embed--portrait" : ""}`}>
                         <iframe
                           src={video.embedUrl}
                           title={video.title}
@@ -801,8 +801,9 @@ const tools = [
 
   .video-list {
     margin-top: 1rem;
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+    align-items: start;
     gap: 0.75rem;
   }
 
@@ -817,8 +818,6 @@ const tools = [
 
   .video-embed--portrait {
     aspect-ratio: 9 / 16;
-    max-width: 340px;
-    margin-inline: auto;
   }
 
   .video-embed iframe,
