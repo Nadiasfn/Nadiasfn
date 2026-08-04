@@ -1,7 +1,7 @@
 ---
 title: Fully AI-generated Video Creating
 description: An end-to-end AI-generated launch video — concept, visuals, and narration produced entirely through generative AI tools.
-order: 7
+order: 5
 tags:
   - AI-Generated Video
   - Video Content
